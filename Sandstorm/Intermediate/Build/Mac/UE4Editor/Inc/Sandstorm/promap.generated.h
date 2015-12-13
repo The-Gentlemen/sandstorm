@@ -13,8 +13,48 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SANDSTORM_promap_generated_h
 
-#define Sandstorm_Source_Sandstorm_promap_promap_h_13_RPC_WRAPPERS
-#define Sandstorm_Source_Sandstorm_promap_promap_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Sandstorm_Source_Sandstorm_promap_promap_h_13_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execSaveCurrentParameters) \
+	{ \
+		P_FINISH; \
+		this->SaveCurrentParameters(); \
+	} \
+ \
+	DECLARE_FUNCTION(execParametersChanged) \
+	{ \
+		P_FINISH; \
+		*(bool*)Z_Param__Result=this->ParametersChanged(); \
+	} \
+ \
+	DECLARE_FUNCTION(execGenerateMesh) \
+	{ \
+		P_FINISH; \
+		this->GenerateMesh(); \
+	}
+
+
+#define Sandstorm_Source_Sandstorm_promap_promap_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execSaveCurrentParameters) \
+	{ \
+		P_FINISH; \
+		this->SaveCurrentParameters(); \
+	} \
+ \
+	DECLARE_FUNCTION(execParametersChanged) \
+	{ \
+		P_FINISH; \
+		*(bool*)Z_Param__Result=this->ParametersChanged(); \
+	} \
+ \
+	DECLARE_FUNCTION(execGenerateMesh) \
+	{ \
+		P_FINISH; \
+		this->GenerateMesh(); \
+	}
+
+
 #define Sandstorm_Source_Sandstorm_promap_promap_h_13_INCLASS_NO_PURE_DECLS \
 	private: \
 	static void StaticRegisterNativesApromap(); \

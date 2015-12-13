@@ -11,16 +11,80 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSandstorm() {}
 	void Apromap::StaticRegisterNativesApromap()
 	{
+		FNativeFunctionRegistrar::RegisterFunction(Apromap::StaticClass(),"GenerateMesh",(Native)&Apromap::execGenerateMesh);
+		FNativeFunctionRegistrar::RegisterFunction(Apromap::StaticClass(),"ParametersChanged",(Native)&Apromap::execParametersChanged);
+		FNativeFunctionRegistrar::RegisterFunction(Apromap::StaticClass(),"SaveCurrentParameters",(Native)&Apromap::execSaveCurrentParameters);
 	}
-	IMPLEMENT_CLASS(Apromap, 2218400146);
+	IMPLEMENT_CLASS(Apromap, 95322394);
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
+	PROCEDURALMESHCOMPONENT_API class UClass* Z_Construct_UClass_UProceduralMeshComponent_NoRegister();
 
+	SANDSTORM_API class UFunction* Z_Construct_UFunction_Apromap_GenerateMesh();
+	SANDSTORM_API class UFunction* Z_Construct_UFunction_Apromap_ParametersChanged();
+	SANDSTORM_API class UFunction* Z_Construct_UFunction_Apromap_SaveCurrentParameters();
 	SANDSTORM_API class UClass* Z_Construct_UClass_Apromap_NoRegister();
 	SANDSTORM_API class UClass* Z_Construct_UClass_Apromap();
 	SANDSTORM_API class UPackage* Z_Construct_UPackage_Sandstorm();
+	UFunction* Z_Construct_UFunction_Apromap_GenerateMesh()
+	{
+		UObject* Outer=Z_Construct_UClass_Apromap();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GenerateMesh"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Promap"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_Apromap_ParametersChanged()
+	{
+		struct promap_eventParametersChanged_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_Apromap();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ParametersChanged"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(promap_eventParametersChanged_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, promap_eventParametersChanged_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_Native) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, promap_eventParametersChanged_Parms), 0x0000000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, promap_eventParametersChanged_Parms), sizeof(bool), true);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Promap"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_Apromap_SaveCurrentParameters()
+	{
+		UObject* Outer=Z_Construct_UClass_Apromap();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("SaveCurrentParameters"), RF_Public|RF_Transient|RF_Native) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Promap"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_Apromap_NoRegister()
 	{
 		return Apromap::StaticClass();
@@ -38,16 +102,25 @@ void EmptyLinkFunctionForGeneratedCodeSandstorm() {}
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20900080;
 
+				OuterClass->LinkChild(Z_Construct_UFunction_Apromap_GenerateMesh());
+				OuterClass->LinkChild(Z_Construct_UFunction_Apromap_ParametersChanged());
+				OuterClass->LinkChild(Z_Construct_UFunction_Apromap_SaveCurrentParameters());
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 				UProperty* NewProp_noise_stretching_mul = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("noise_stretching_mul"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(noise_stretching_mul, Apromap), 0x0000000000000005);
 				UProperty* NewProp_noise_amplitude_mul = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("noise_amplitude_mul"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(noise_amplitude_mul, Apromap), 0x0000000000000005);
+				UProperty* NewProp_senoid_stretching = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("senoid_stretching"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(senoid_stretching, Apromap), 0x0000000000000005);
 				UProperty* NewProp_senoid_amplitude = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("senoid_amplitude"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(senoid_amplitude, Apromap), 0x0000000000000005);
 				UProperty* NewProp_node_spacing = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("node_spacing"), RF_Public|RF_Transient|RF_Native) UFloatProperty(CPP_PROPERTY_BASE(node_spacing, Apromap), 0x0000000000000005);
 				UProperty* NewProp_origin = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("origin"), RF_Public|RF_Transient|RF_Native) UStructProperty(CPP_PROPERTY_BASE(origin, Apromap), 0x0000000000000005, Z_Construct_UScriptStruct_FVector2D());
+				UProperty* NewProp_uv_scaling = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("uv_scaling"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(uv_scaling, Apromap), 0x0000000000000005);
 				UProperty* NewProp_height = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("height"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(height, Apromap), 0x0000000000000005);
 				UProperty* NewProp_width = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("width"), RF_Public|RF_Transient|RF_Native) UIntProperty(CPP_PROPERTY_BASE(width, Apromap), 0x0000000000000005);
+				UProperty* NewProp_mesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("mesh"), RF_Public|RF_Transient|RF_Native) UObjectProperty(CPP_PROPERTY_BASE(mesh, Apromap), 0x000000000008000d, Z_Construct_UClass_UProceduralMeshComponent_NoRegister());
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_Apromap_GenerateMesh()); // 3034956977
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_Apromap_ParametersChanged()); // 4006175384
+				OuterClass->AddFunctionToFunctionMap(Z_Construct_UFunction_Apromap_SaveCurrentParameters()); // 1240507826
 				OuterClass->StaticLink();
 #if WITH_METADATA
 				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
@@ -57,17 +130,25 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				MetaData->SetValue(NewProp_noise_stretching_mul, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_noise_amplitude_mul, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_noise_amplitude_mul, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+				MetaData->SetValue(NewProp_senoid_stretching, TEXT("Category"), TEXT("Promap"));
+				MetaData->SetValue(NewProp_senoid_stretching, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_senoid_amplitude, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_senoid_amplitude, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_node_spacing, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_node_spacing, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_origin, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_origin, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+				MetaData->SetValue(NewProp_uv_scaling, TEXT("Category"), TEXT("Promap"));
+				MetaData->SetValue(NewProp_uv_scaling, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_height, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_height, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_width, TEXT("Category"), TEXT("Promap"));
 				MetaData->SetValue(NewProp_width, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
 				MetaData->SetValue(NewProp_width, TEXT("ToolTip"), TEXT("configuration"));
+				MetaData->SetValue(NewProp_mesh, TEXT("Category"), TEXT("Promap"));
+				MetaData->SetValue(NewProp_mesh, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_mesh, TEXT("ModuleRelativePath"), TEXT("promap/promap.h"));
+				MetaData->SetValue(NewProp_mesh, TEXT("ToolTip"), TEXT("------------- Properties\nGenerated mesh"));
 #endif
 			}
 		}
@@ -84,8 +165,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/Sandstorm")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x9CF84F7B;
-			Guid.B = 0xD277009D;
+			Guid.A = 0x8BC9D275;
+			Guid.B = 0x0040CDAB;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);
